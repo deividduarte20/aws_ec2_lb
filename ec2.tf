@@ -5,14 +5,14 @@ resource "aws_instance" "dev-instance" {
   count                  = 1
   subnet_id              = element(aws_subnet.public.*.id, count.index)
   vpc_security_group_ids = [aws_security_group.lb.id]
-  key_name               = "wadson"
+  key_name               = "deivid"
   tags = {
     Name = "dev-ec2-server"
   }
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("./wadson.pem")
+    private_key = file("./deivid.pem")
     host        = self.public_ip
   }
   provisioner "remote-exec" {
