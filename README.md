@@ -6,7 +6,7 @@
 
 
 ### Entre no diretório baixado
-`cd aws-ec2-alb`
+`cd aws_ec2_lb`
 
 ### Inicie o terraform
 `terraform init`
