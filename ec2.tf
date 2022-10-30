@@ -1,7 +1,7 @@
 #create a ec2 instance with existing vpc subnet
 resource "aws_instance" "dev-instance" {
-  ami                    = "ami-002068ed284fb165b"
-  instance_type          = "t2.micro"
+  ami                    = var.inst_ami
+  instance_type          = var.inst_type
   count                  = 1
   subnet_id              = element(aws_subnet.public.*.id, count.index)
   vpc_security_group_ids = [aws_security_group.lb.id]
